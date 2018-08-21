@@ -1,0 +1,292 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: white;
+}
+h1 {
+    color: white;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 6rem;
+    text-shadow: 1px 1px #aaa;
+}
+
+#container {
+    background-color: white;
+    background-image: url("../images/countryside.jpg");
+    background-repeat: no-repeat;
+    width: 70%;
+    margin: 20px auto 10px auto;
+    padding: 5px;
+    border: 1px solid #999;
+    font-family: 'Roboto', 'sans-serif';
+    border-radius: 4px;
+    margin-top: 20px;
+    line-height: 30px;
+    padding-left: 10px;
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+}
+#get-weather {
+    margin-top: 15px;
+}
+
+#summary-panel {
+    position: absolute;
+    display: none;
+    /* left: 7%; */
+    width: 15%;
+    /* bottom: 30px; */
+    z-index: 5;
+    margin: 40px 70px 10px auto;
+    background-color: #fff;
+    border: 1px solid #999;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+    border-radius: 4px;
+    text-align: center;
+    float: right;
+    height: 90%;
+    overflow: scroll;
+    right: 10%;
+}
+label, #point-options {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+#clearMarkers {
+    z-index: 5;
+}
+#clearMarkersBtn {
+    position: relative;
+    bottom: 5px;
+    float: right;
+}
+
+#floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+
+#right-panel select,
+#right-panel input {
+    font-size: 15px;
+}
+
+#right-panel select {
+    width: 100%;
+}
+
+#right-panel i {
+    font-size: 12px;
+}
+#right-panel {
+    display: none;
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    /* bottom: 30px; */
+    z-index: 5;
+    margin: 20px auto 10px auto;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 20px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+}
+
+#map {
+    margin: 20px auto 10px auto;
+    height: 100%;
+    width: 80%;
+    border-radius: 4px;
+    /* float: left; */
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+}
+
+#floating-panel {
+    background: #fff;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+    display: none;
+    width: 82%;
+}
+
+
+
+h3 {
+    text-align: center;
+}
+
+#route-entry {
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+#start {
+    width: 50%;
+    margin: 1px auto 25px auto;
+    display: block;
+    background-color: white;
+}
+
+#end {
+    width: 50%;
+    margin: -8px auto 15px auto;
+    display: block;
+    background-color: white;
+}
+
+select {
+    border-color: #9e9e9e;
+}
+
+#weather-points, #forecast-times {
+    display: block;
+    width: 20%;
+    margin: 0 auto 10px auto;
+}
+
+input::-webkit-input-placeholder {
+    color: gray;
+}
+
+input {
+    text-indent: 10px;
+}
+
+i.right {
+    margin-left: 10px;
+}
+
+.summary-item {
+border: 0.5px solid #ccc;
+color: black;
+background-color: #63d2c7;
+border-radius: 5px;
+margin: 5px auto 5px auto;
+padding: 5px;
+}
+#icon-display {
+    width: 25%;
+    margin: -15px 0px
+}
+#logo {
+    width: 12%;
+}
+.wx-icon {
+    width: 10%;
+    margin-bottom: -5px;
+}
+#windWatch {
+border-radius: 50%;
+padding: 20px;
+background-color: white;
+color: black;
+border: 2px solid #008CBA;
+top: 0;
+left: 0;
+margin-bottom: 10px;
+}
+
+
+#windWatch:hover {
+background-color: #008CBA;
+color: white;
+}
+
+img {
+    width: 15%;
+    padding-top: 10px;
+}
+.text-display {
+    font-size: 16px;
+}
+
+.btn {
+    background-color: #2dada0;
+    margin-bottom: 5px;
+}
+hr {
+    width: 90%;
+}
+
+#temp-icon{
+    width: 14%;
+}
+#wind-icon{
+    width: 14%;
+}
+#direction-icon{
+    width: 14%;
+}
+#biker-icon {
+    width: 14%;
+}
+
+#condition-icon{
+    width: 25%;
+    margin: -20px 0px;
+}
+
+
+
+@media print {
+    #map {
+        height: 500px;
+        margin: 0;
+    }
+    #right-panel {
+        float: none;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* The body's bg color will be #333 */
+    body {
+        background-color: #b1b1b1;
+    }
+    /* The wrapper's width will be 600px */
+    .wrapper {
+        width: 600px;
+    }
+    #start,
+    #end,
+    #map,
+    {
+        width: 90%;
+    }
+    
+#error {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+}
