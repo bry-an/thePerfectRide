@@ -105,11 +105,14 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       directionsDisplay.setDirections(response);
       if (errorFlag) {
         $("#error").empty();
+        errorFlag = false;
       }
     } else {
+      if(!errorFlag) {
       var error = $("<div id = 'error'>Please enter a valid location</div>");
       $("#route-entry").append(error);
       errorFlag = true;
+      }
     }
   });
 }
