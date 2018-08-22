@@ -1,5 +1,5 @@
 # The Perfect Ride
-This app allows users to plot a bike route using the Google Maps API, and have an arbitrary number (up to 12) or waypoints along the route that display weather information at each location. For bikers who've had the experience of weather changes mid-ride, or simply enjoy detailed and micro-location specific weather information, this app is for you. 
+This app allows users to plot a bike route using the Google Maps API, and have an arbitrary number (up to 12) of waypoints along the route that display weather information at each location. For bikers who've had the experience of weather changes mid-ride, or simply enjoy detailed and micro-location specific weather information, this app is for you. 
 
 The Perfect Ride also allows users to select a start-time for advanced ride planning. This is especially helpful if you have a long weekend ride in mind but want to make sure ahead of time that your route will have favorable weather conditions. 
 
