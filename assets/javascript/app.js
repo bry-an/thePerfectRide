@@ -53,7 +53,6 @@ function initMap() {
   //handles drag events
   var dragHandler = function () {
     computeTotalDistance(directionsDisplay.getDirections());
-    console.log("drag handler");
     recalculateDisplayedRoute(directionsDisplay);
     count = 0;
     headWind = [];
@@ -70,7 +69,6 @@ function initMap() {
       start: routeStart,
       finish: destination
     }
-    console.log(routeStore);
     database.ref().push(routeStore);
     onChangeHandler()
   });
@@ -79,7 +77,6 @@ function initMap() {
 }
 //triggered by either dragging the route or creating a new one. 
 function recalculateDisplayedRoute(directionsDisplay) {
-  console.log("recalculate displayed route");
   var weatherPoints = document.getElementById('weather-points').value;
   var newRoute = directionsDisplay.getDirections();
   var newPointsArr = newRoute.routes[0].overview_path;
@@ -123,7 +120,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 //It iterates through the position array, grabs values at a specified interval, and passes
 //those values to the big three functions in this app: getMarker and either getWeather or getForecast
 function getAll(numOfIntervals, array) {
-  console.log("get all");
   clearSummaryPanel();
   deleteMarkers(weatherMarkers);
   weatherMarkers = [];
@@ -135,7 +131,6 @@ function getAll(numOfIntervals, array) {
     if (i % interval == 0) {
       count++;
       if (count > numOfIntervals) {
-        console.log("too much!");
         return;
       }
 
@@ -181,7 +176,6 @@ function getMarker(lat, lng) {
   })
   weatherMarkers.push(marker);
   marker.addListener("mouseover", (event) => {
-    console.log("mouseover")
     weatherMarkers.forEach(function (marker, index) {
       if (marker.position.lat() == event.latLng.lat()) {
         selectedMarkerIndex = index;
@@ -191,7 +185,6 @@ function getMarker(lat, lng) {
   })
 
   marker.addListener("mouseout", (event) => {
-    console.log("mouseout");
     highlightSummaryDiv(selectedMarkerIndex, "#4db6ac");
   })
 
@@ -208,7 +201,6 @@ function calculateHeadwindComponent(windSpd, windDr, hdg) {
 
 //ajax request to get current weather
 function getWeather(lat, lng, callback) {
-  console.log("get weather");
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?APPID=1af38fcbab6d390a11b52f1a3c19fe7f&units=imperial&lat=" + lat + "&lon=" + lng;
   $.ajax({
     url: queryURL,
@@ -243,7 +235,6 @@ function getForecastTimes(response) {
 var wind = [];
 //callback function for getWeather that puts the weather details on the summary pane
 function appendWeatherToSummary(response) {
-  console.log("append weather");
   var heading = headingsArr.shift();
   var desc = response.weather[0].description;
   var temp = response.main.temp;
@@ -269,7 +260,6 @@ function appendForecastToSummary(response) {
   var heading = headingsArr.shift();
   var forecastIndex = ($("#forecast-times").val() - 1); //since index 0 has "Now!", need to substract one to get time selected index
   var forecast = response.list[forecastIndex];
-  console.log(forecast.dt);
   var desc = forecast.weather[0].description;
   var temp = forecast.main.temp;
   var windSpeed = forecast.wind.speed;
@@ -288,30 +278,29 @@ function appendForecastToSummary(response) {
 }
 
 
-  function windWatch(wind) {
-    if (wind > 1 && wind <= 10) {
-      // html turns green
-      $("#windWatch").css("background", "rgba(76, 175, 80, 0.6)")
-    };
-    if (wind > 10.1 && wind <= 20) {
-      // html turns yellow
-      $("#windWatch").css("background", "rgba(255,255,0, 0.5)")
-    }
-    if (wind > 20.1) {
-      // document.write("got it"), html turns red
-      $("#windWatch").css("background", "rgba(255, 0, 0, 0.6)")
-    };
+function windWatch(wind) {
+  if (wind > 1 && wind <= 10) {
+    // html turns green
+    $("#windWatch").css("background", "rgba(76, 175, 80, 0.6)")
+  };
+  if (wind > 10.1 && wind <= 20) {
+    // html turns yellow
+    $("#windWatch").css("background", "rgba(255,255,0, 0.5)")
   }
+  if (wind > 20.1) {
+    // document.write("got it"), html turns red
+    $("#windWatch").css("background", "rgba(255, 0, 0, 0.6)")
+  };
+}
 
-  function windWatch2(headWind) {
-    for (var i = 0; i < headWind.length; i++) {
-      if (headWind[i] > 1) {
-        var divOfInterest = document.getElementById("summary-panel").children[i];
-        $(divOfInterest).css("background", "rgba(255, 0, 0, 0.6)")
-        console.log(divOfInterest);
-      }
-    };
-  }
+function windWatch2(headWind) {
+  for (var i = 0; i < headWind.length; i++) {
+    if (headWind[i] > 12) {
+      var divOfInterest = document.getElementById("summary-panel").children[i];
+      $(divOfInterest).css("background", "rgba(255, 0, 0, 0.6)")
+    }
+  };
+}
 function clearSummaryPanel() {
   $("#summary-panel").empty();
 }
@@ -324,7 +313,6 @@ function setMapOnAll(map, markerArray) {
 }
 //deletes markers in specified marker array
 function deleteMarkers(markerArray) {
-  console.log("delete markers");
   setMapOnAll(null, markerArray);
   markerArray = [];
 
@@ -363,7 +351,6 @@ function getAutocomplete(input, infowindowContent) {
 }
 //drops a marker with an InfoWindow containing the current weather at that location
 function placeWeatherMarker(location) {
-  console.log(location);
   var clickedMarker = new google.maps.Marker({
     position: location,
     map: map
@@ -397,7 +384,6 @@ function setBounds(markerArray) {
 }
 //drops a weather marker at specified latLng object (location)
 function placeWeatherMarker(location) {
-  console.log(location);
   var clickedMarker = new google.maps.Marker({
     position: location,
     map: map
@@ -426,7 +412,6 @@ function placeWeatherMarker(location) {
     getForecast(location.lat(), location.lng(), function (response) {
       var forecastIndex = ($("#forecast-times").val() - 1); //since index 0 has "Now!", need to substract one to get time selected index
       var forecast = response.list[forecastIndex];
-      console.log(forecast.dt);
       var desc = forecast.weather[0].description;
       var temp = forecast.main.temp;
       var windSpeed = forecast.wind.speed;
@@ -466,12 +451,15 @@ $(document).ready(function () {
   getForecast(39.739, 104.99, getForecastTimes);
 
   $("#clearMarkersBtn").on("click", function () {
-    console.log("clickey click");
     deleteMarkers(clickedMarkers);
   })
 
-$("#windWatch").on("click", function (event) {
-  windWatch(wind[0]);
-  windWatch2(headWind);
-});
+  $("#windWatch").on("click", function (event) {
+    windWatch(wind[0]);
+    windWatch2(headWind);
+  });
+
+  $("#accept-tip").on("click", function () {
+    $("#tip").css("display", "none");
+  });
 })
