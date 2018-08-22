@@ -272,7 +272,7 @@ function appendForecastToSummary(response) {
   var headwindComponent = calculateHeadwindComponent(windSpeed, windDir, heading);
   var item = $("<div class = 'summary-item'>");
   $(panelDiv).append(item);
-  // $(item).append(icon + "<br>");
+  $(item).append(icon + "<br>");
   $(item).append("<img id='temp-icon' src='assets/images/thermometer.png'>&nbsp&nbsp<span class='text-display'>" + temp + " &deg F </span><br>");
   $(item).append("<img id='direction-icon' src='assets/images/wind-direction.svg'>&nbsp&nbsp&nbsp<span class='text-display'>" + windSpeed + " mph</span><br>");
   $(item).append("<img id='direction-icon' src='assets/images/compass-icon.png'>&nbsp<img id='direction-icon' src='assets/images/wind-direction.svg'>&nbsp&nbsp&nbsp<span class='text-display'>" + windDir.toFixed(2) + "&deg</span><br>");
