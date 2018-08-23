@@ -8,7 +8,7 @@ A key feature of this app is the incorporation of the biker's heading (via their
 The WindWatch feature, when enabled, will highlight a weather card for a specific location if the forecast headwind at that location exceeds 12 mph, so users can have at-a-glance wind information for quick checks before a long ride. 
 
 Users can also click anywhere on the map to provide weather information for that specific location, matching the time they set for their ride. E.g. If a user selects a ride for the following day at noon, clicking on the map will give weather information for that location at noon the following day. 
-
+  
 ## How can you help
 Given the excessive bounds of the Google Maps API, there are likely scenarios which provide buggy results for users. Collaborators can find these bugs and help address them. 
 
