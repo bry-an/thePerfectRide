@@ -324,7 +324,7 @@ function deleteMarkers(markerArray) {
 function getAutocomplete(input, infowindowContent) {
 
   var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.bindTo('bounds', map);
+  autocomplete.bindTo('bounds', map);//bias the results to map bounds
   autocomplete.setFields(['address_components', 'geometry', 'icon', 'name']);
   var infowindow = new google.maps.InfoWindow();
   var marker = new google.maps.Marker({
